@@ -135,7 +135,7 @@ const Matches = ({ stateMatches }) => {
                   </div>
                 </div>
                 <div
-                  className={`text-base w-[44px] font-normal pt-[5px] pb-[5px] pl-[7px] pr-[7px] ${
+                  className={`text-base w-[44px] text-center font-normal pt-[5px] pb-[5px] pl-[7px] pr-[7px] ${
                     item.rs.point === 0
                       ? ""
                       : item.rs.point === 6.1
