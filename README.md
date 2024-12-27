@@ -1,4 +1,7 @@
+
 # Getting Started with Create React App
 
-B1: npm i
-B2: npm start
+#STEP 1 
+## `npm i`
+#STEP 2 
+### `npm start`
