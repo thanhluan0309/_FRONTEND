@@ -14,46 +14,74 @@ import {
 
 const data = [
   {
+    name: "",
+    uv: 0,
+    LG: 0,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png",
+  },
+  {
     name: "'10",
     uv: 66,
     LG: 40,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png",
   },
   {
     name: "'13",
     uv: 50,
     LG: 40,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png",
   },
   {
     name: "'14",
     uv: 50,
     LG: 40,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png",
   },
   {
     name: "'16",
     uv: 30,
     LG: 40,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png",
   },
   {
     name: "'17",
     uv: 40,
     LG: 40,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png",
   },
   {
     name: "'19",
     uv: 55,
     LG: 40,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png",
   },
   {
     name: "'20",
     uv: 20,
     LG: 40,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png",
   },
   {
     name: "'22",
     uv: 10,
     LG: 40,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png",
   },
 ];
+// Lấy dữ liệu hiển thị
+
+const CustomLabel = ({ x, y, index, value }) => {
+  return (
+    <image
+      href={value}
+      x={x - 12} // Căn chỉnh ngang
+      y={y - 40} // Căn chỉnh dọc để đặt flag phía trên
+      height={24} // Chiều cao flag
+      width={24} // Chiều rộng flag
+    />
+  );
+};
+
 export const LineChart = () => {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
@@ -135,8 +163,14 @@ export const LineChart = () => {
           dataKey="uv"
           stroke="#2187E5"
           fill="url(#gradient1)"
-          dot={{ stroke: "white", strokeWidth: 2, fill: "white" }} // Màu đỏ cho các điểm chấm
-        />
+          dot={{ stroke: "white", strokeWidth: 2, fill: "white" }}
+        >
+          {/* Hiển thị flag */}
+          <LabelList
+            dataKey="flag" // Trường dữ liệu chứa URL hình ảnh
+            content={<CustomLabel />}
+          />
+        </Area>
       </AreaChart>
     </ResponsiveContainer>
   );
